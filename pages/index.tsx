@@ -1,15 +1,14 @@
 import type { NextPage } from "next"
-import Head from "next/head"
-import Image from "next/image"
-import styles from "../styles/Home.module.css"
-import { Intro } from "../components/intro"
 
-const Home: NextPage = () => {
+import { App } from "../components/App"
+import { CV } from "../components/CV"
+
+const CvPage: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Intro />
-    </div>
+    <App>
+      <CV />
+    </App>
   )
 }
 
-export default Home
+export default CvPage
