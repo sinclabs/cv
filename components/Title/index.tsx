@@ -3,7 +3,13 @@ import { Text, Title as TitleText, Space } from "@mantine/core"
 
 import styles from "./Title.module.css"
 
-const Title: FC = () => (
+type TitleProps = {
+  firstname: string
+  lastname: string
+  title: string
+}
+
+const Title: FC<TitleProps> = ({ firstname, lastname, title }) => (
   <>
     <Space h={30} />
     <TitleText
@@ -12,9 +18,9 @@ const Title: FC = () => (
         marginBottom: "-10px",
       }}
     >
-      Senior Consultant
+      {title}
     </TitleText>
-    <TitleText order={1}>Subramanian Alagappan</TitleText>
+    <TitleText order={1}>{`${firstname} ${lastname}`}</TitleText>
   </>
 )
 

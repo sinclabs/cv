@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 import { Text, Title } from "@mantine/core"
 
-const Experiences: FC = () => (
+const Experiences: FC<{ roles: string[] }> = ({ roles }) => (
   <>
     <Title order={3}>Experiences</Title>
-    <Text>Fullstack developer, Software Engineer, Software Architect</Text>
+    <Text>{roles.join(", ")}</Text>
   </>
 )
 

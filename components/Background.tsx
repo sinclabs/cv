@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 import { Text, Title } from "@mantine/core"
 
-const Background: FC = () => (
+const Background: FC<{ background: string[] }> = ({ background }) => (
   <>
     <Title order={3}>Background</Title>
-    <Text>FinTech, Social Robotics, SportsTech, Edtech, MedTech</Text>
+    <Text>{background.join(", ")}</Text>
   </>
 )
 
