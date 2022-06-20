@@ -63,9 +63,10 @@ export const cvData: CV = {
     "Windows",
   ],
   background: ["FinTech", "Social Robotics", "SportsTech", "Edtech", "MedTech"],
-  consultantExperiences: [
+  experiences: [
     {
-      client: {
+      type: "consultant",
+      company: {
         name: "Klarna Bank AB",
       },
       startDate: "Q3 2021",
@@ -77,7 +78,8 @@ export const cvData: CV = {
       isSelected: true,
     },
     {
-      client: {
+      type: "consultant",
+      company: {
         name: "Svensk Travsport",
       },
       startDate: "Q2 2021",
@@ -89,6 +91,5 @@ export const cvData: CV = {
       isSelected: true,
     },
   ],
-  workExperiences: [],
   personalProjects: [],
 }

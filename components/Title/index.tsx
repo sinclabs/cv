@@ -1,7 +1,5 @@
 import React, { FC } from "react"
-import { Text, Title as TitleText, Space } from "@mantine/core"
-
-import styles from "./Title.module.css"
+import { Title as TitleText, Space } from "@mantine/core"
 
 type TitleProps = {
   firstname: string

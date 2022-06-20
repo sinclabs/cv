@@ -1,15 +1,16 @@
 import type { CV as CVType, Role } from "../types"
 
 import React, { FC } from "react"
-import { Container, Grid } from "@mantine/core"
+import { Container, Grid, Space } from "@mantine/core"
 
 import { Panel } from "./Panel"
 import { Intro } from "./Intro"
 import { Title } from "./Title"
 import { Competences } from "./Competences"
 import { Background } from "./Background"
-import { Experiences } from "./Experiences"
+import { Roles } from "./Roles"
 import { SelectedExperience } from "./SelectedExperience"
+import { Experience } from "./Experience"
 
 type CVProps = {
   cv: CVType
@@ -24,22 +25,20 @@ const CV: FC<CVProps> = ({ cv }) => {
     background,
     competences,
     languages,
-    workExperiences,
-    consultantExperiences,
+    experiences,
     personalProjects,
   } = cv
 
   const selectedExperienceRoles: Role[] = []
 
-  ;[...workExperiences, ...consultantExperiences].forEach((experience) =>
-    selectedExperienceRoles.concat(
-      experience.roles.filter((role) => role.isSelected)
-    )
+  experiences.forEach(
+    (experience) =>
+      experience.isSelected &&
+      selectedExperienceRoles.push({ name: experience.name })
   )
-  const selectedExperiences = [
-    ...workExperiences,
-    ...consultantExperiences,
-  ].filter((experience) => experience.isSelected)
+  const selectedExperiences = experiences.filter(
+    (experience) => experience.isSelected
+  )
 
   return (
     <Container>
@@ -52,9 +51,7 @@ const CV: FC<CVProps> = ({ cv }) => {
         </Panel>
         <Panel span={4}>
           <Grid.Col span={12}>
-            <Experiences
-              roles={selectedExperienceRoles.map((role) => role.name)}
-            />
+            <Roles roles={selectedExperienceRoles.map((role) => role.name)} />
           </Grid.Col>
           <Grid.Col span={12}>
             <Background background={background} />
@@ -65,6 +62,10 @@ const CV: FC<CVProps> = ({ cv }) => {
         </Panel>
         <Panel span={8}>
           <SelectedExperience experiences={selectedExperiences} />
+        </Panel>
+        <Panel span={12}>
+          <Space h={"md"} />
+          <Experience experiences={experiences} />
         </Panel>
       </Grid>
     </Container>

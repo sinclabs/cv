@@ -21,14 +21,8 @@ export type ProjectDescription = {
 
 export type Experience = ProjectDescription & {
   roles: Role[]
-}
-
-export type ConsultantExperience = Experience & {
-  client: Company
-}
-
-export type WorkExperience = Experience & {
   company: Company
+  type: "consultant" | "company" | "personal" | "other"
 }
 
 export type CV = {
@@ -39,7 +33,6 @@ export type CV = {
   languages: string[]
   competences: string[]
   background: string[]
-  consultantExperiences: ConsultantExperience[]
-  workExperiences: WorkExperience[]
+  experiences: Experience[]
   personalProjects?: ProjectDescription[]
 }

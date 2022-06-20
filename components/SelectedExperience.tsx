@@ -30,36 +30,16 @@ const SelectedExperience: FC<{
     experience: WorkExperience | ConsultantExperience,
     index: number
   ) => {
-    const isConsultantExperience = (
-      experience: WorkExperience | ConsultantExperience
-    ): experience is ConsultantExperience => {
-      return !!(experience as ConsultantExperience).client
-    }
-
-    const isWorkExperience = (
-      experience: WorkExperience | ConsultantExperience
-    ): experience is WorkExperience => {
-      return !!(experience as WorkExperience).company
-    }
-
     const experienceDescription = getExperienceDescription(experience)
 
-    if (isConsultantExperience(experience)) {
-      return (
-        <Timeline.Item title={`${experience.name} - ${experience.client.name}`}>
-          {experienceDescription}
-        </Timeline.Item>
-      )
-    } else if (isWorkExperience(experience)) {
-      return (
-        <Timeline.Item
-          title={`${experience.name} - ${experience.company.name}`}
-          key={index}
-        >
-          {experienceDescription}
-        </Timeline.Item>
-      )
-    }
+    return (
+      <Timeline.Item
+        title={`${experience.name} - ${experience.company.name}`}
+        key={index}
+      >
+        {experienceDescription}
+      </Timeline.Item>
+    )
   }
   return (
     <>
