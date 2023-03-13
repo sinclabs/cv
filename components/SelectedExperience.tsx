@@ -1,14 +1,12 @@
-import type { WorkExperience, ConsultantExperience } from "../types"
+import type { Experience } from "../types"
 
 import React, { FC } from "react"
 import { Timeline, Text, Title, Space } from "@mantine/core"
 
 const SelectedExperience: FC<{
-  experiences: (WorkExperience | ConsultantExperience)[]
+  experiences: Experience[]
 }> = ({ experiences }) => {
-  const getExperienceDescription = (
-    experience: WorkExperience | ConsultantExperience
-  ) => (
+  const getExperienceDescription = (experience: Experience) => (
     <>
       <Text color="dimmed" size="sm">
         {`${experience.startDate.toLocaleString()} - ${experience.endDate.toLocaleString()}`}
@@ -26,10 +24,7 @@ const SelectedExperience: FC<{
     </>
   )
 
-  const getExperiences = (
-    experience: WorkExperience | ConsultantExperience,
-    index: number
-  ) => {
+  const getExperiences = (experience: Experience, index: number) => {
     const experienceDescription = getExperienceDescription(experience)
 
     return (

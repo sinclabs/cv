@@ -1,9 +1,1 @@
-export type {
-  CV,
-  Company,
-  ConsultantExperience,
-  Experience,
-  ProjectDescription,
-  Role,
-  WorkExperience,
-} from "./cv"
+export type { CV, Company, Experience, ProjectDescription, Role } from "./cv"

@@ -7,6 +7,7 @@ import {
   ColorSchemeProvider,
   ColorScheme,
 } from "@mantine/core"
+import { useColorScheme } from "@mantine/hooks"
 
 export type AppProps = {
   pageTitle?: string
@@ -17,7 +18,9 @@ const App: FC<AppProps> = ({
   pageTitle = "Subbu Alagappan - CV",
   children,
 }) => {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light")
+  const preferredColorScheme = useColorScheme()
+  const [colorScheme, setColorScheme] =
+    useState<ColorScheme>(preferredColorScheme)
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"))
 
